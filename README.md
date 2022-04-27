@@ -1,6 +1,7 @@
 ## Project
 
 Technologies: React
+
 Preview: [https://francescopomodoro.netlify.app]
 
 ## Available Scripts
