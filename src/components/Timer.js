@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import useTimer from "../../hooks/useTimer";
-import ButtonPage from "../ButtonPage";
-import "./styles.css";
+import useTimer from "../hooks/useTimer";
+import ButtonPage from "./ButtonPage";
+import "./styles/Timer.css";
 
 const bgColors = {
   pomodoro: "#51943d",

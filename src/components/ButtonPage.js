@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./styles/ButtonPage.css";
 
 const ButtonPage = ({ children, page, handleClick }) => {
   return (
