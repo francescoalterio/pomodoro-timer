@@ -2,28 +2,14 @@ import React, { useState, useEffect } from "react";
 import useTimer from "./hooks/useTimer";
 import ButtonPage from "./components/ButtonPage";
 import "./App.css";
-
-const bgColors = {
-  pomodoro: "#51943d",
-  shortBreak: "#4c9195",
-  longBreak: "#8c4c95",
-};
+import usePage from "./hooks/usePage";
 
 function App() {
-  const [bgColor, setBgColor] = useState();
-  const { minutes, seconds, start, page, handleStart, handlePage } = useTimer();
-
-  useEffect(() => {
-    if (page === "Pomodoro") {
-      setBgColor(bgColors.pomodoro);
-    }
-    if (page === "Short Break") {
-      setBgColor(bgColors.shortBreak);
-    }
-    if (page === "Long Break") {
-      setBgColor(bgColors.longBreak);
-    }
-  }, [page]);
+  const { page, changePage, bgColor } = usePage();
+  const { minutes, seconds, start, handleStart, handlePage } = useTimer(
+    page,
+    changePage
+  );
 
   return (
     <div className="App">

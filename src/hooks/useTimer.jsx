@@ -17,11 +17,10 @@ const initialLongBreak = {
 
 const initialLongBreakInterval = 4;
 
-const useTimer = () => {
+const useTimer = (page, changePage) => {
   const [minutes, setMinutes] = useState(initialPomodoro.minutes);
   const [seconds, setSeconds] = useState(initialPomodoro.seconds);
   const [longBreakInterval, setLongBreakInterval] = useState(0);
-  const [page, setPage] = useState("Pomodoro");
   const [start, setStart] = useState(false);
 
   const click = new Audio("/sounds/cajas-registradoras_3.mp3");
@@ -61,20 +60,18 @@ const useTimer = () => {
   }, [seconds, start]);
 
   const changeTimer = (page) => {
+    changePage(page);
     if (page === "Pomodoro") {
       setMinutes(initialPomodoro.minutes);
       setSeconds(initialPomodoro.seconds);
-      setPage("Pomodoro");
     }
     if (page === "Short Break") {
       setMinutes(initialShortBreak.minutes);
       setSeconds(initialShortBreak.seconds);
-      setPage("Short Break");
     }
     if (page === "Long Break") {
       setMinutes(initialLongBreak.minutes);
       setSeconds(initialLongBreak.seconds);
-      setPage("Long Break");
     }
   };
 
