@@ -11,8 +11,7 @@ const bgColors = {
 
 const Timer = () => {
   const [bgColor, setBgColor] = useState();
-  const { minutes, seconds, start, page, handleStart, handlePage } =
-    useTimer(page);
+  const { minutes, seconds, start, page, handleStart, handlePage } = useTimer();
 
   useEffect(() => {
     if (page === "Pomodoro") {
