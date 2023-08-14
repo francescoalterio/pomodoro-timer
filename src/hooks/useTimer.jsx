@@ -23,6 +23,7 @@ const useTimer = () => {
   const [longBreakInterval, setLongBreakInterval] = useState(0);
   const [page, setPage] = useState("Pomodoro");
   const [start, setStart] = useState(false);
+
   const click = new Audio("/sounds/cajas-registradoras_3.mp3");
   const newPage = new Audio("/sounds/002663916_prev.mp3");
 
