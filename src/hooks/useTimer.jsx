@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from "react";
 
-const initialPomodoro = {
-  seconds: 0,
-  minutes: 25,
-};
-
-const initialShortBreak = {
-  seconds: 0,
-  minutes: 5,
-};
-
-const initialLongBreak = {
-  seconds: 0,
-  minutes: 15,
+const INITIAL_TIMES = {
+  Pomodoro: {
+    seconds: 0,
+    minutes: 25,
+  },
+  "Short Break": {
+    seconds: 0,
+    minutes: 5,
+  },
+  "Long Break": {
+    seconds: 0,
+    minutes: 15,
+  },
 };
 
 const initialLongBreakInterval = 4;
 
 const useTimer = (page, changePage) => {
-  const [minutes, setMinutes] = useState(initialPomodoro.minutes);
-  const [seconds, setSeconds] = useState(initialPomodoro.seconds);
+  const [minutes, setMinutes] = useState(INITIAL_TIMES["Pomodoro"].minutes);
+  const [seconds, setSeconds] = useState(INITIAL_TIMES["Pomodoro"].seconds);
   const [longBreakInterval, setLongBreakInterval] = useState(0);
   const [start, setStart] = useState(false);
 
@@ -61,19 +61,8 @@ const useTimer = (page, changePage) => {
 
   const changeTimer = (page) => {
     changePage(page);
-    if (page === "Pomodoro") {
-      setMinutes(initialPomodoro.minutes);
-      setSeconds(initialPomodoro.seconds);
-    }
-    if (page === "Short Break") {
-      setMinutes(initialShortBreak.minutes);
-      setSeconds(initialShortBreak.seconds);
-    }
-    if (page === "Long Break") {
-      setMinutes(initialLongBreak.minutes);
-      setSeconds(initialLongBreak.seconds);
-    }
-    setStart(true);
+    setMinutes(INITIAL_TIMES[page].minutes);
+    setSeconds(INITIAL_TIMES[page].seconds);
   };
 
   const handlePage = (page) => {
