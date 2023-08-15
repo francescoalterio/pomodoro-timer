@@ -73,6 +73,7 @@ const useTimer = (page, changePage) => {
       setMinutes(initialLongBreak.minutes);
       setSeconds(initialLongBreak.seconds);
     }
+    setStart(true);
   };
 
   const handlePage = (page) => {
@@ -91,12 +92,7 @@ const useTimer = (page, changePage) => {
   };
 
   const handleStart = () => {
-    if (!start) {
-      setStart(true);
-    } else {
-      setStart(false);
-    }
-
+    setStart(!start);
     click.play();
   };
 
@@ -107,7 +103,6 @@ const useTimer = (page, changePage) => {
     minutes: parseMinutes,
     seconds: parseSeconds,
     start,
-    page,
     handleStart,
     handlePage,
   };
